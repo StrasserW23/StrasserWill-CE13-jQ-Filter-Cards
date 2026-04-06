@@ -1,105 +1,13 @@
 /* ------------------------------
-   FILTER BUTTONS
---------------------------------- */
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.75rem;
-  margin-bottom: 2rem;
-}
-
-.filter-btn {
-  padding: 0.7rem 1.2rem;
-  border: none;
-  border-radius: 2rem;
-  background-color:yellow;
-  color: black;
-  cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.filter-btn:hover {
-  background-color: red;
-  transform: translateY(-2px);
-}
-
-.filter-btn.active {
-  background-color: purple;
-  color: white;
-}
-
-/* ------------------------------
-   CARD GRID
---------------------------------- */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(204px, 1fr));
-  gap: 1.5rem;
-  background-color: pink;
-  padding: 1rem;
-  border-radius: 18px;
-  border: 2px solid gold;
-}
-
-.card {
-  background-color: gold;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-}
-
-.card:hover {
-  transform: scale(1.03);
-}
-
-.card img {
-  width: 100%;
-  aspect-ratio: 5 / 3;
-  object-fit: cover;
-}
-
-.card-text {
-  padding: 1rem 1rem 1.25rem;
-}
-
-.category-label {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
-  font-weight: bold;
-  color: #805ad5;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-/* New Audio category color */
-.category-label.audio {
-  color: #ff4500;
-}
-
-.card h2 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
-}
-
-.card p:last-child {
-  margin-bottom: 0;
-  color: mediumaquamarine;
-}
-
-/* ------------------------------
    BASIC PAGE STYLES
 --------------------------------- */
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #cfcfcf;
-  color: #1a202c;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #0f172a; /* Deep Slate */
+  color: #f1f5f9;
   line-height: 1.6;
   padding: 1rem;
 }
@@ -108,40 +16,147 @@ img { display: block; max-width: 100%; }
 button { font: inherit; }
 
 .wrapper {
-  width: 90%;
-  max-width: 1200px;
+  width: 95%;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 4rem 0;
 }
 
-header { text-align: center; margin-bottom: 2rem; }
-header h1 { margin-bottom: 0.5rem; font-size: 2.25rem; }
-header p { max-width: 700px; margin: 0 auto; color: #4a5568; }
-.section-heading { margin-bottom: 1rem; font-size: 1.25rem; }
+header { text-align: center; margin-bottom: 4rem; }
+header h1 { 
+  margin-bottom: 0.75rem; 
+  font-size: 3rem; 
+  letter-spacing: -0.02em;
+  background: linear-gradient(to right, #10b981, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+header p { max-width: 600px; margin: 0 auto; color: #94a3b8; font-size: 1.1rem; }
+
+/* ------------------------------
+   FILTER BUTTONS
+--------------------------------- */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.filter-btn {
+  padding: 0.6rem 1.5rem;
+  border: 1px solid #334155;
+  border-radius: 0.5rem;
+  background-color: #1e293b;
+  color: #94a3b8;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.filter-btn:hover {
+  background-color: #334155;
+  color: #f1f5f9;
+  transform: translateY(-1px);
+}
+
+.filter-btn.active {
+  background-color: #10b981;
+  border-color: #10b981;
+  color: #ffffff;
+  box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.39);
+}
+
+/* ------------------------------
+   CARD GRID
+--------------------------------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 0.5rem;
+}
+
+.card {
+  background-color: #1e293b;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #334155;
+  transition: all 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: #475569;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  filter: grayscale(20%);
+  transition: filter 0.3s ease;
+}
+
+.card:hover img {
+  filter: grayscale(0%);
+}
+
+.card-text {
+  padding: 1.5rem;
+}
+
+.category-label {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #10b981;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.category-label.audio {
+  color: #fbbf24; /* Amber for Audio */
+}
+
+.card h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.4rem;
+  color: #f8fafc;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
 
 /* ------------------------------
    EXPLANATION SECTION
 --------------------------------- */
 .code-explanation {
-  background-color: #ffffff;
-  border-radius: 18px;
-  padding: 1.5rem;
-  margin-top: 2rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 2.5rem;
+  margin-top: 5rem;
 }
 
-hr.line { border: none; border-top: 1px solid silver; margin: 2rem 0 0 0; }
+.code-explanation h3 { 
+  margin-top: 0; 
+  color: #10b981;
+}
 
-.code-explanation h3 { margin-top: 1.5rem; }
-.code-explanation ul,
-.code-explanation ol,
-.code-explanation dl { margin-bottom: 1.25rem; }
-.code-explanation li { margin: 0 0 0.25rem 1.5rem; }
-.code-explanation dt { font-weight: bold; margin-top: 0.75rem; }
-.code-explanation dd { margin-left: 0; margin-bottom: 0.75rem; color: #4a5568; }
 .code-explanation code {
-  font-family: Consolas, Monaco, monospace;
-  background-color: #edf2f7;
-  padding: 0.1rem 0.35rem;
+  font-family: 'Fira Code', monospace;
+  background-color: #0f172a;
+  color: #e2e8f0;
+  padding: 0.2rem 0.4rem;
   border-radius: 4px;
+  font-size: 0.9em;
 }
+
+hr.line { border: none; border-top: 1px solid #334155; margin: 3rem 0; }
